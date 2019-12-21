@@ -9,8 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Install sfdx-cli
+      run: npm install sfdx-cli
     - name: Check sfdx bin
-      run: |
-        npm install sfdx-cli
-        cd node_modules/salesforcedx/lib && ls
+      run: cd node_modules/salesforcedx && ls
         
