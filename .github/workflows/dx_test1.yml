@@ -9,11 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: docker://salesforce/salesforcedx
     - name: Where Am I??
       run: pwd && ls
-    - name: Test Docker
+    - name: Check npm
       run: |
-        docker images
-        docker run -it salesforce/salesforcedx
-        sfdx
+        npm
+        npm -v
