@@ -13,6 +13,8 @@ jobs:
       run: npm install sfdx-cli
 #     - name: Check sfdx bin
 #       run: cd node_modules/salesforcedx/commands/force && ls
-    - name: Run sfdx
-      run: sfdx --version
+#     - name: Run sfdx
+#       run: sfdx --version
+    - name: where am I?
+      run: pwd
         
