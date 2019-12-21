@@ -12,3 +12,4 @@ jobs:
     - name: Check npm
       run: |
         npm install sfdx-cli
+        sfdx
