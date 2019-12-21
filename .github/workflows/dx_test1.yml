@@ -11,10 +11,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install sfdx-cli
       run: npm install sfdx-cli
-#     - name: Check sfdx bin
-#       run: cd node_modules/salesforcedx/commands/force && ls
+    - name: TestDX
+      run: node_modules/salesforcedx --version
 #     - name: Run sfdx
 #       run: sfdx --version
-    - name: where am I?
-      run: pwd
+#     - name: where am I?
+#       run: pwd
         
