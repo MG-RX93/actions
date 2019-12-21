@@ -13,4 +13,4 @@ jobs:
       run: |
         npm install sfdx-cli
         cd node_modules/salesforcedx && ls
-        node_modules/salesforcedx sfdx
+        sfdx
