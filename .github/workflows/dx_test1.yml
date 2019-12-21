@@ -14,4 +14,4 @@ jobs:
     - name: Check npm
       run: |
         npm
-        npm -v
+        npm v
