@@ -13,6 +13,5 @@ jobs:
       run: npm install sfdx-cli
     - name: Run DX
       run: node_modules/sfdx-cli/bin/run --version
-    - name: where am I?
-      run: cd node_modules && ls
+
         
