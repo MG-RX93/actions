@@ -12,5 +12,5 @@ jobs:
     - name: Install sfdx-cli
       run: npm install sfdx-cli
     - name: Check sfdx bin
-      run: cd node_modules/salesforcedx/commands && ls
+      run: cd node_modules/salesforcedx/commands/force && ls
         
