@@ -15,5 +15,5 @@ jobs:
     - name: Test Docker
       run: |
         docker images
-        docker run salesforce/salesforcedx
+        docker run -it salesforce/salesforcedx
         sfdx
