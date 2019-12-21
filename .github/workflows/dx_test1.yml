@@ -10,11 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install sfdx-cli
-      run: npm install sfdx-cli
-    - name: TestDX
-      run: node_modules/salesforcedx --version
+      run: npm install --global sfdx-cli
+#     - name: TestDX
+#       run: node_modules/salesforcedx --version
 #     - name: Run sfdx
 #       run: sfdx --version
-#     - name: where am I?
-#       run: pwd
+    - name: where am I?
+      run: cd node_modules && ls
         
