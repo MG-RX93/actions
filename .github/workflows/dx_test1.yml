@@ -12,5 +12,5 @@ jobs:
     - uses: docker://salesforce/salesforcedx
     - name: Where Am I??
       run: pwd && ls
-    - name: Test SDFX
-      run: sfdx
+    - name: Test Docker
+      run: docker images
