@@ -13,5 +13,4 @@ jobs:
       run: pwd && ls
     - name: Check npm
       run: |
-        npm
-        npm v
+        npm -l
