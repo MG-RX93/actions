@@ -12,5 +12,5 @@ jobs:
     - name: Check npm
       run: |
         npm install sfdx-cli
-        cd node_modules/salesforcedx && ls
-        sfdx
+        node_modules/salesforcedx --version
+        
