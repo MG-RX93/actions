@@ -13,4 +13,7 @@ jobs:
     - name: Where Am I??
       run: pwd && ls
     - name: Test Docker
-      run: docker images
+      run: |
+        docker images
+        docker run salesforce/salesforcedx
+        sfdx
