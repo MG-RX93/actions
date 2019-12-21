@@ -14,26 +14,26 @@ jobs:
     - name: Run DX
       run: node_modules/sfdx-cli/bin/run --version
     - name: Decrypt Server Key
-      run: openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K $KEY -iv $IV
+      run: openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K ${{ secrets.KEY }} -iv ${{ secrets.IV }}
     - name: JWT Auth to Dev Hub
-      run: node_modules/sfdx-cli/bin/run force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a myHub -r $PRODURL
+      run: node_modules/sfdx-cli/bin/run force:auth:jwt:grant --clientid ${{ secrets.CONSUMERKEY }} --jwtkeyfile assets/server.key --username ${{ secrets.USERNAME }} --setdefaultdevhubusername -a ${{ secrets.MYHUB }} -r ${{ secrets.DEVHUBURL }}
     - name: Create Scratch Org
-      run: node_modules/sfdx-cli/bin/run force:org:create -v myHub -s -f config/project-scratch-def.json -a SC00
+      run: node_modules/sfdx-cli/bin/run force:org:create -v ${{ secrets.MYHUB }} -s -f config/project-scratch-def.json -a ${{ secrets.SORG }}
     - name: Remove Server Key
       run: rm assets/server.key
     - name: Install Lightning Testing Service
       run:  node_modules/sfdx-cli/bin/run force:lightning:test:install -t jasmine
     - name: Push Source
-      run: node_modules/sfdx-cli/bin/run force:source:push -u SC00
+      run: node_modules/sfdx-cli/bin/run force:source:push -u ${{ secrets.SORG }}
     - name: Run Tests
       run: |
         mkdir ~/tests
         mkdir ~/tests/apex
-        node_modules/sfdx-cli/bin/run force:apex:test:run -u SC00 -c -r human -d ~/tests/apex -w 9999
+        node_modules/sfdx-cli/bin/run force:apex:test:run -u ${{ secrets.SORG }} -c -r human -d ~/tests/apex -w 9999
     - name: Pull Source
-      run: node_modules/sfdx-cli/bin/run force:source:pull -u SC00
+      run: node_modules/sfdx-cli/bin/run force:source:pull -u ${{ secrets.SORG }}
     - name: CleanUp
       run: |
-        node_modules/sfdx-cli/bin/run force:org:delete -u SC00 -p
+        node_modules/sfdx-cli/bin/run force:org:delete -u ${{ secrets.SORG }} -p
         rm ~/tests/apex/*.txt ~/tests/apex/test-result-7*.json
         
